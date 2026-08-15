@@ -1,0 +1,80 @@
+{
+  "name": "dexcode",
+  "productName": "DexCode",
+  "private": true,
+  "version": "1.0.0",
+  "description": "DexCode - Cross-Platform Desktop & Web Code Editor",
+  "main": "electron/main.js",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx server.ts",
+    "dev:web": "vite --port=3000 --host=0.0.0.0",
+    "dev:desktop": "electron .",
+    "server": "NODE_ENV=production tsx server.ts",
+    "check": "node scripts/check.js",
+    "build": "vite build && esbuild server.ts --bundle --platform=node --format=cjs --packages=external --sourcemap --outfile=dist/server.cjs",
+    "start": "node dist/server.cjs",
+    "preview": "vite preview",
+    "clean": "rm -rf dist dist-desktop server.js",
+    "lint": "tsc --noEmit",
+    "build:all": "npm run build && npm run build:win && npm run build:mac && npm run build:linux",
+    "build:win": "electron-builder --win",
+    "build:mac": "electron-builder --mac",
+    "build:linux": "electron-builder --linux",
+    "build:ubuntu": "electron-builder --linux deb",
+    "build:deb": "electron-builder --linux deb",
+    "build:fedora": "electron-builder --linux rpm",
+    "build:arch": "electron-builder --linux pacman"
+  },
+  "build": {
+    "appId": "com.dexcode.editor",
+    "productName": "DexCode",
+    "copyright": "Copyright © 2026 DexCode Team",
+    "directories": {
+      "output": "dist-desktop"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "mac": {
+      "category": "public.app-category.developer-tools",
+      "target": ["dmg", "zip"]
+    },
+    "win": {
+      "target": ["nsis", "portable"]
+    },
+    "linux": {
+      "target": ["AppImage", "deb", "rpm", "tar.gz"],
+      "category": "Development"
+    }
+  },
+  "dependencies": {
+    "@google/genai": "^2.17.1",
+    "@monaco-editor/react": "^4.7.0",
+    "@tailwindcss/vite": "^4.1.14",
+    "@vitejs/plugin-react": "^5.0.4",
+    "dotenv": "^17.2.3",
+    "express": "^4.21.2",
+    "jszip": "^3.10.1",
+    "lucide-react": "^0.546.0",
+    "monaco-editor": "^0.56.0",
+    "motion": "^12.23.24",
+    "react": "^19.0.1",
+    "react-dom": "^19.0.1",
+    "vite": "^6.2.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.14.0",
+    "autoprefixer": "^10.4.21",
+    "electron": "^43.2.0",
+    "electron-builder": "^26.15.3",
+    "esbuild": "^0.25.0",
+    "tailwindcss": "^4.1.14",
+    "tsx": "^4.21.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.3"
+  }
+}
