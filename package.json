@@ -1,14 +1,14 @@
 {
-  "name": "dexcode",
-  "productName": "DexCode",
+  "name": "dexcode-react",
+  "productName": "DexCode React",
   "private": true,
   "version": "1.0.0",
-  "description": "DexCode - Cross-Platform Desktop & Web Code Editor",
+  "description": "DexCode React - Cross-Platform Desktop & Web Code Editor",
   "main": "electron/main.js",
   "type": "module",
   "scripts": {
     "dev": "tsx server.ts",
-    "dev:web": "vite --port=3000 --host=0.0.0.0",
+    "dev:web": "vite --port=1000 --host=0.0.0.0",
     "dev:desktop": "electron .",
     "server": "NODE_ENV=production tsx server.ts",
     "check": "node scripts/check.js",
@@ -51,7 +51,6 @@
     }
   },
   "dependencies": {
-    "@google/genai": "^2.17.1",
     "@monaco-editor/react": "^4.7.0",
     "@tailwindcss/vite": "^4.1.14",
     "@vitejs/plugin-react": "^5.0.4",

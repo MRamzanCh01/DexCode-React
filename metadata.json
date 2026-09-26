@@ -1,6 +1,5 @@
 {
   "name": "DexCode React",
   "description": "Cross-Platform Desktop & Web Code Editor with full Acode Plugin system support",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "requestFramePermissions": []
 }
